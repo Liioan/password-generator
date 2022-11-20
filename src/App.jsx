@@ -1,5 +1,8 @@
+//. styles
+import './assets/global.css';
+import './assets/variables.css';
+
 import { useState } from 'react';
-import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
