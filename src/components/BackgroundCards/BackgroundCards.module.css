@@ -1,0 +1,22 @@
+.card {
+  width: 35rem;
+  aspect-ratio: 3/4;
+  border-radius: 2rem;
+  background: var(--gradient1);
+  padding: 1rem;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.2;
+  rotate: -15deg;
+  translate: -2.5rem 2rem;
+}
+
+.card:nth-child(2) {
+  rotate: -10deg;
+  translate: -1rem -1rem;
+}
+
+.card:nth-child(3) {
+  rotate: 10.5deg;
+  translate: 2rem -0.5rem;
+}

@@ -19,6 +19,6 @@
   /* filters */
   --black-to-cyan: invert(86%) sepia(33%) saturate(855%) hue-rotate(105deg)
     brightness(98%) contrast(87%);
-  --black-to-dark-blue: invert(5%) sepia(94%) saturate(1511%) hue-rotate(188deg)
-    brightness(102%) contrast(99%);
+  --black-to-purple: invert(19%) sepia(48%) saturate(4553%) hue-rotate(307deg)
+    brightness(90%) contrast(104%);
 }

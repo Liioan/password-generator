@@ -1,20 +1,26 @@
+//. assets
+import GithubIco from './assets/github.svg';
+
 //. components
 import MainCard from './components/MainCard/MainCard';
-import BackgroundCard from './components/BackgroundCard/BackgroundCard';
+import BackgroundCards from './components/BackgroundCards/BackgroundCards';
 
 //. styles
 import './assets/global.css';
 import './assets/variables.css';
 
-import { useState } from 'react';
-
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div className='App'>
-      {/*  */}
-      {/*  */}
+      <MainCard />
+      <BackgroundCards />
+      <a
+        href='https://github.com/liioan/password-generator'
+        target='_blank'
+        className='github-ico'
+      >
+        <img src={GithubIco} alt='' />
+      </a>
     </div>
   );
 }

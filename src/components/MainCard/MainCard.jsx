@@ -2,7 +2,8 @@ import styles from './MainCard.module.css';
 
 export default function MainCard() {
   return (
-    <div>
+    <div className={styles.card}>
+      lorem
       {/*  */}
       {/*  */}
     </div>

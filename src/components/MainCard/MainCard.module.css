@@ -1,0 +1,8 @@
+.card {
+  width: 35rem;
+  aspect-ratio: 3/4;
+  border-radius: 2rem;
+  background: var(--gradient2);
+  padding: 1rem;
+  border: 1px solid var(--white);
+}
