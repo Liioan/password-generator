@@ -1,3 +1,7 @@
+//. components
+import MainCard from './components/MainCard/MainCard';
+import BackgroundCard from './components/BackgroundCard/BackgroundCard';
+
 //. styles
 import './assets/global.css';
 import './assets/variables.css';
