@@ -5,4 +5,14 @@
   background: var(--gradient2);
   padding: 1rem;
   border: 1px solid var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  font-weight: 400;
+  color: var(--0);
 }
