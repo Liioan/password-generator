@@ -15,7 +15,11 @@
   );
   --gradient3: linear-gradient(331.09deg, #8c8589 0%, #ffffff 100%);
   --gradient4: linear-gradient(101.81deg, #ad5389 8.64%, #3c1053 100%);
-
+  --gradient5: linear-gradient(
+    100.96deg,
+    rgba(255, 0, 34, 0.7) 0%,
+    rgba(185, 19, 114, 0.7) 100%
+  );
   /* filters */
   --black-to-cyan: invert(86%) sepia(33%) saturate(855%) hue-rotate(105deg)
     brightness(98%) contrast(87%);

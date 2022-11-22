@@ -38,7 +38,7 @@ export default function MainCard() {
       </div>
 
       <button onClick={handleClick} className={styles.btn}>
-        update
+        generate
       </button>
     </div>
   );
