@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: 45rem;
+}
+
+.container span {
+  font-size: 2rem;
+  color: var(--dark-blue);
+}
+
+.checkbox {
+  width: 4.2rem;
+  height: 4.2rem;
+  background: linear-gradient(var(--offwhite), var(--offwhite)) padding-box,
+    var(--gradient1) border-box;
+  border-radius: 50em;
+  border: 4px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease;
+}
+
+.checkbox span {
+  font-size: 4rem !important;
+  font-weight: 500;
+  color: var(--cyan);
+}
+
+.checked {
+  background: var(--gradient1) border-box;
+}

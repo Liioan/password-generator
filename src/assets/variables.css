@@ -5,6 +5,7 @@
   --cyan: #41ead4;
   --white: #fdfffc;
   --purple: #b91372;
+  --offwhite: rgba(253, 255, 252, 0.5);
 
   /* gradients */
   --gradient1: linear-gradient(100.96deg, #ff0022 0%, #b91372 100%);

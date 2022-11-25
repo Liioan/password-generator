@@ -37,7 +37,7 @@
   height: 2rem;
   border-radius: 2rem;
   background-color: none;
-  box-shadow: 100rem 0 0 99rem var(--white);
+  box-shadow: 100rem 0 0 99rem var(--offwhite);
   transition: 0.2s ease;
   cursor: w-resize;
 }
