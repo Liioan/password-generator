@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 //. styles
@@ -6,6 +6,12 @@ import styles from './Checkbox.module.css';
 
 export default function Checkbox({ text, type }) {
   const [isClicked, setIsClicked] = useState(false);
+
+  useEffect(() => {
+    if (type === 'uper' || type === 'lowr') {
+      setIsClicked('true');
+    }
+  }, [type]);
 
   const handleClick = type => {
     setIsClicked(prev => (prev = !prev));

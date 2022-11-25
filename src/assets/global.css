@@ -40,7 +40,7 @@ body {
   align-items: center;
 }
 
-:focus {
+:focus-visible {
   outline: 2px solid var(--cyan);
 }
 
