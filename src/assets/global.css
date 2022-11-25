@@ -40,6 +40,10 @@ body {
   align-items: center;
 }
 
+:focus {
+  outline: 2px solid var(--cyan);
+}
+
 @font-face {
   font-family: 'Material Symbols Outlined';
   font-style: normal;
