@@ -11,13 +11,23 @@ import styles from './MainCard.module.css';
 
 export default function MainCard() {
   const [password, setPassword] = useState('');
-  const { lenght } = usePassword();
+  const {
+    lenght,
+    changeUppercase,
+    uppercase,
+    changeLowercase,
+    lowercase,
+    changeNumbers,
+    numbers,
+    changeSymbols,
+    symbols,
+  } = usePassword();
 
   const checkboxes = [
-    { name: 'uppercase letters', state: 'uper' },
-    { name: 'lowercase letters', state: 'lowr' },
-    { name: 'numbers', state: 'nums' },
-    { name: 'symbols', state: 'symb' },
+    { action: changeUppercase, type: uppercase, text: 'uppercase' },
+    { action: changeLowercase, type: lowercase, text: 'lowercase' },
+    { action: changeNumbers, type: numbers, text: 'numbers' },
+    { action: changeSymbols, type: symbols, text: 'symbols' },
   ];
 
   const handleClick = () => {
@@ -34,9 +44,10 @@ export default function MainCard() {
       <Range />
       {checkboxes.map(checkbox => (
         <Checkbox
-          key={checkbox.name}
-          text={checkbox.name}
-          type={checkbox.state}
+          key={checkbox.text}
+          text={checkbox.text}
+          type={checkbox.type}
+          action={checkbox.action}
         />
       ))}
       <button onClick={handleClick} className={styles.btn}>

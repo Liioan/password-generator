@@ -1,30 +1,26 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePassword } from '../../../hooks/usePassword';
 
 //. styles
 import styles from './Checkbox.module.css';
 
-export default function Checkbox({ text, type }) {
-  const [isClicked, setIsClicked] = useState(false);
+export default function Checkbox({ text, type, action }) {
+  const [value, setValue] = useState(type);
 
-  useEffect(() => {
-    if (type === 'uper' || type === 'lowr') {
-      setIsClicked('true');
-    }
-  }, [type]);
-
-  const handleClick = type => {
-    setIsClicked(prev => (prev = !prev));
+  const handleClick = () => {
+    setValue(prev => !prev);
+    action(value);
   };
 
   return (
     <div className={styles.container}>
       <button
-        className={`${styles.checkbox} ${isClicked ? styles.checked : ''}`}
-        onClick={() => handleClick(type)}
+        className={`${styles.checkbox} ${value ? styles.checked : ''}`}
+        onClick={handleClick}
       >
         <AnimatePresence>
-          {isClicked && (
+          {value && (
             <motion.span
               className='material-symbols-outlined'
               initial={{ opacity: 0, translateX: '-100%' }}
@@ -37,7 +33,11 @@ export default function Checkbox({ text, type }) {
           )}
         </AnimatePresence>
       </button>
-      <span>{text}</span>
+      <span>
+        {text === 'uppercase' || text === 'lowercase'
+          ? `${text} letters`
+          : text}
+      </span>
     </div>
   );
 }
