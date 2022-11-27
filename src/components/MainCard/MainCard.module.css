@@ -30,3 +30,7 @@
   cursor: pointer;
   font-size: 2rem;
 }
+
+.btn:hover {
+  background: var(--gradient1) !important;
+}
