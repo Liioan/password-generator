@@ -35,8 +35,9 @@
   border-radius: 10rem;
   cursor: pointer;
   font-size: 2rem;
+  transition: 0.2s ease;
 }
 
 .btn:hover {
-  background: var(--gradient1) !important;
+  color: var(--white);
 }
