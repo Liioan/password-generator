@@ -1,4 +1,5 @@
 import { createContext, useReducer } from 'react';
+import { useGenerator } from '../hooks/useGenerator';
 
 export const PasswordContext = createContext();
 
@@ -28,6 +29,25 @@ export function PasswordProvider({ children }) {
     symbols: false,
   });
 
+  const generatePassword = () => {
+    const result = useGenerator(
+      state.uppercase,
+      state.lowercase,
+      state.numbers,
+      state.symbols
+    );
+
+    const newPassword = (() => {
+      let password = '';
+      for (let i = 0; i < state.lenght; i++) {
+        password += result[Math.floor(Math.random() * result.length)];
+      }
+      return password;
+    })();
+
+    return newPassword;
+  };
+
   const changeLenght = lenght => {
     dispatch({ type: 'CHANGE_LENGHT', payload: lenght });
   };
@@ -54,6 +74,7 @@ export function PasswordProvider({ children }) {
         changeLowercase,
         changeNumbers,
         changeSymbols,
+        generatePassword,
       }}
     >
       {children}

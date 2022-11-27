@@ -11,16 +11,23 @@ import styles from './MainCard.module.css';
 
 export default function MainCard() {
   const [password, setPassword] = useState('');
+  const { generatePassword } = usePassword();
+  const handleClick = () => {
+    setPassword(generatePassword());
+  };
+
   const {
+    //- values
     lenght,
-    changeUppercase,
     uppercase,
-    changeLowercase,
     lowercase,
-    changeNumbers,
     numbers,
-    changeSymbols,
     symbols,
+    //- functions
+    changeUppercase,
+    changeLowercase,
+    changeNumbers,
+    changeSymbols,
   } = usePassword();
 
   const checkboxes = [
@@ -29,13 +36,6 @@ export default function MainCard() {
     { action: changeNumbers, type: numbers, text: 'numbers' },
     { action: changeSymbols, type: symbols, text: 'symbols' },
   ];
-
-  const handleClick = () => {
-    setPassword('');
-    for (let i = 0; i < lenght; i++) {
-      setPassword(prev => (prev += Math.round(Math.random() * 9)));
-    }
-  };
 
   return (
     <div className={styles.card}>

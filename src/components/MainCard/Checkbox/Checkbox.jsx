@@ -10,8 +10,11 @@ export default function Checkbox({ text, type, action }) {
 
   const handleClick = () => {
     setValue(prev => !prev);
-    action(value);
   };
+
+  useEffect(() => {
+    action(value);
+  }, [value]);
 
   return (
     <div className={styles.container}>
