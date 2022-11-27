@@ -18,7 +18,6 @@ export default function MainCard() {
 
   const {
     //- values
-    lenght,
     uppercase,
     lowercase,
     numbers,

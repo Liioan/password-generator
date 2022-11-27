@@ -38,11 +38,15 @@ export function PasswordProvider({ children }) {
     );
 
     const newPassword = (() => {
-      let password = '';
-      for (let i = 0; i < state.lenght; i++) {
-        password += result[Math.floor(Math.random() * result.length)];
+      if (result.length) {
+        let password = '';
+        for (let i = 0; i < state.lenght; i++) {
+          password += result[Math.floor(Math.random() * result.length)];
+        }
+        return password;
+      } else {
+        return '';
       }
-      return password;
     })();
 
     return newPassword;
@@ -56,7 +60,7 @@ export function PasswordProvider({ children }) {
     dispatch({ type: 'CHANGE_UPPERCASE', payload: value });
   };
   const changeLowercase = value => {
-    dispatch({ type: 'CHANGE_SYMBOLS', payload: value });
+    dispatch({ type: 'CHANGE_LOWERCASE', payload: value });
   };
   const changeNumbers = value => {
     dispatch({ type: 'CHANGE_NUMBERS', payload: value });
