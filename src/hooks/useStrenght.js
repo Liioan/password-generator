@@ -39,10 +39,10 @@ export const useStrenght = () => {
       setRating('moderate');
     }
     if (strenght < 80 && strenght >= 60) {
-      setRating('safe');
+      setRating('secure');
     }
     if (strenght <= 100 && strenght >= 80) {
-      setRating('very safe');
+      setRating('very secure');
     }
   }, [strenght]);
 

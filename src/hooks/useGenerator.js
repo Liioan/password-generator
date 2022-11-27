@@ -13,7 +13,6 @@ export const useGenerator = (uppercase, lowercase, numbers, symbols) => {
 
   const symbolsChars = ['!', '@', '#', '$', '%', '^', '&', '*', '.', ',', '?'];
 
-  console.log(lowercase, uppercase, numbers, symbols);
   const finalCharSet = [
     ...(lowercase ? lowercaseChars : []),
     ...(uppercase ? uppercaseChars : []),

@@ -25,8 +25,8 @@ export function PasswordProvider({ children }) {
     lenght: 20,
     uppercase: true,
     lowercase: true,
-    numbers: false,
-    symbols: false,
+    numbers: true,
+    symbols: true,
   });
 
   const generatePassword = () => {
