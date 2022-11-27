@@ -1,0 +1,33 @@
+.container {
+  width: 45rem;
+  height: 7rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.text {
+  font-size: 2rem;
+}
+
+.bar {
+  width: 100%;
+  border: 2px solid var(--white);
+  height: 3.5rem;
+  border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  background-color: var(--offwhite);
+}
+
+.bar span {
+  min-width: 20% !important;
+  height: 100%;
+  border-radius: 2rem;
+  background-color: var(--cyan);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.6rem;
+}

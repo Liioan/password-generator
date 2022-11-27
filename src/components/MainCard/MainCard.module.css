@@ -9,13 +9,19 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2rem;
+  gap: 3rem;
 }
 
 .title {
   font-weight: 400;
   color: var(--0);
   font-size: 3.6rem;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .btn {

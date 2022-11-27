@@ -5,6 +5,7 @@ import { usePassword } from '../../hooks/usePassword';
 import PasswordCopy from './PasswordCopy/PasswordCopy';
 import Range from './Range/Range';
 import Checkbox from './Checkbox/Checkbox';
+import Strenght from './Strength/Strength';
 
 //. styles
 import styles from './MainCard.module.css';
@@ -41,14 +42,18 @@ export default function MainCard() {
       <h1 className={styles.title}>password generator</h1>
       <PasswordCopy generatedPassword={password} />
       <Range />
-      {checkboxes.map(checkbox => (
-        <Checkbox
-          key={checkbox.text}
-          text={checkbox.text}
-          type={checkbox.type}
-          action={checkbox.action}
-        />
-      ))}
+      <div className={styles.checkboxes}>
+        {checkboxes.map(checkbox => (
+          <Checkbox
+            key={checkbox.text}
+            text={checkbox.text}
+            type={checkbox.type}
+            action={checkbox.action}
+          />
+        ))}
+      </div>
+      <Strenght />
+
       <button onClick={handleClick} className={styles.btn}>
         generate
       </button>
