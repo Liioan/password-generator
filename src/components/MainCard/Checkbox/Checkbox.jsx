@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { usePassword } from '../../../hooks/usePassword';
 
 //. styles
 import styles from './Checkbox.module.css';
 
 export default function Checkbox({ text, type, action }) {
   const [value, setValue] = useState(type);
+  const { changeValues } = usePassword();
 
   const handleClick = () => {
     setValue(prev => !prev);
   };
 
   useEffect(() => {
-    action(value);
+    changeValues(value, action);
   }, [value]);
 
   return (
