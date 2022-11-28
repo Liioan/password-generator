@@ -1,16 +1,16 @@
-import { useStrenght } from '../../../hooks/useStrenght';
+import { useStrength } from '../../../hooks/useStrength';
 
 //. styles
 import styles from './Strength.module.css';
 
 export default function Strength() {
-  const { strenght, rating } = useStrenght();
+  const { strength, rating } = useStrength();
 
   return (
     <div className={styles.container}>
-      <div className={styles.text}>strenght</div>
+      <div className={styles.text}>strength</div>
       <div className={styles.bar}>
-        <span style={{ width: `${strenght}%` }}>{rating}</span>
+        <span style={{ width: `${strength}%` }}>{rating}</span>
       </div>
     </div>
   );
