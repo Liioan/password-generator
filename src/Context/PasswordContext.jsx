@@ -15,6 +15,8 @@ const passwordReducer = (state, action) => {
       return { ...state, numbers: action.payload };
     case 'CHANGE_SYMBOLS':
       return { ...state, symbols: action.payload };
+    case 'CHANGE_PASSWORD':
+      return { ...state, password: action.payload };
     default:
       return state;
   }
@@ -27,46 +29,32 @@ export function PasswordProvider({ children }) {
     lowercase: true,
     numbers: true,
     symbols: true,
+    password: '',
   });
+
+  const changeLenght = lenght => {
+    dispatch({ type: 'CHANGE_LENGHT', payload: lenght });
+  };
+
+  const changeValues = (value, action) => {
+    dispatch({ type: action, payload: value });
+  };
 
   const generatePassword = () => {
     const result = useGenerator(
+      state.lenght,
       state.uppercase,
       state.lowercase,
       state.numbers,
       state.symbols
     );
 
-    const newPassword = (() => {
-      if (result.length) {
-        let password = '';
-        for (let i = 0; i < state.lenght; i++) {
-          password += result[Math.floor(Math.random() * result.length)];
-        }
-        return password;
-      } else {
-        return '';
-      }
-    })();
-
-    return newPassword;
-  };
-
-  const changeLenght = lenght => {
-    dispatch({ type: 'CHANGE_LENGHT', payload: lenght });
-  };
-
-  const changeUppercase = value => {
-    dispatch({ type: 'CHANGE_UPPERCASE', payload: value });
-  };
-  const changeLowercase = value => {
-    dispatch({ type: 'CHANGE_LOWERCASE', payload: value });
-  };
-  const changeNumbers = value => {
-    dispatch({ type: 'CHANGE_NUMBERS', payload: value });
-  };
-  const changeSymbols = value => {
-    dispatch({ type: 'CHANGE_SYMBOLS', payload: value });
+    if (result !== '#ERR') {
+      dispatch({ type: 'CHANGE_PASSWORD', payload: result });
+      return '#SUCC';
+    } else {
+      return '#ERR';
+    }
   };
 
   return (
@@ -74,10 +62,7 @@ export function PasswordProvider({ children }) {
       value={{
         ...state,
         changeLenght,
-        changeUppercase,
-        changeLowercase,
-        changeNumbers,
-        changeSymbols,
+        changeValues,
         generatePassword,
       }}
     >

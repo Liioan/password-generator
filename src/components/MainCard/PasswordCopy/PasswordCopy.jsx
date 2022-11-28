@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { usePassword } from '../../../hooks/usePassword';
 import { AnimatePresence, motion } from 'framer-motion';
 
 //.styles
 import styles from './PasswordCopy.module.css';
 
-export default function PasswordCopy({ generatedPassword = '' }) {
+export default function PasswordCopy({}) {
+  const { password: generatedPassword } = usePassword();
   const [isCopied, setIsCopied] = useState(false);
   useEffect(() => {
     if (isCopied === true)

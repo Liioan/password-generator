@@ -6,46 +6,36 @@ import PasswordCopy from './PasswordCopy/PasswordCopy';
 import Range from './Range/Range';
 import Checkbox from './Checkbox/Checkbox';
 import Strenght from './Strength/Strength';
+import GenerateButton from './GenerateButton/GenerateButton';
 
 //. styles
 import styles from './MainCard.module.css';
 
 export default function MainCard() {
-  const [password, setPassword] = useState('');
-  const { generatePassword } = usePassword();
-  const handleClick = () => {
-    setPassword(generatePassword());
-  };
-
   const {
     //- values
     uppercase,
     lowercase,
     numbers,
     symbols,
-    //- functions
-    changeUppercase,
-    changeLowercase,
-    changeNumbers,
-    changeSymbols,
   } = usePassword();
 
   const checkboxes = [
-    { action: changeUppercase, type: uppercase, text: 'uppercase' },
-    { action: changeLowercase, type: lowercase, text: 'lowercase' },
-    { action: changeNumbers, type: numbers, text: 'numbers' },
-    { action: changeSymbols, type: symbols, text: 'symbols' },
+    { action: 'CHANGE_UPPERCASE', type: uppercase, text: 'uppercase' },
+    { action: 'CHANGE_LOWERCASE', type: lowercase, text: 'lowercase' },
+    { action: 'CHANGE_NUMBERS', type: numbers, text: 'numbers' },
+    { action: 'CHANGE_SYMBOLS', type: symbols, text: 'symbols' },
   ];
 
   return (
     <div className={styles.card}>
       <h1 className={styles.title}>password generator</h1>
-      <PasswordCopy generatedPassword={password} />
+      <PasswordCopy />
       <Range />
       <div className={styles.checkboxes}>
         {checkboxes.map(checkbox => (
           <Checkbox
-            key={checkbox.text}
+            key={checkbox.action}
             text={checkbox.text}
             type={checkbox.type}
             action={checkbox.action}
@@ -53,10 +43,7 @@ export default function MainCard() {
         ))}
       </div>
       <Strenght />
-
-      <button onClick={handleClick} className={styles.btn}>
-        generate
-      </button>
+      <GenerateButton />
     </div>
   );
 }

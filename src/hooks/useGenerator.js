@@ -1,4 +1,12 @@
-export const useGenerator = (uppercase, lowercase, numbers, symbols) => {
+import { useEffect, useState } from 'react';
+
+export const useGenerator = (
+  lenght,
+  uppercase,
+  lowercase,
+  numbers,
+  symbols
+) => {
   //. chars arrays
   const uppercaseChars = (() => {
     const chars = [...Array(26)].map((val, i) => String.fromCharCode(i + 65));
@@ -20,5 +28,18 @@ export const useGenerator = (uppercase, lowercase, numbers, symbols) => {
     ...(symbols ? symbolsChars : []),
   ];
 
-  return finalCharSet;
+  const generateNewPassword = (() => {
+    if (finalCharSet.length) {
+      let password = '';
+      for (let i = 0; i < lenght; i++) {
+        password +=
+          finalCharSet[Math.floor(Math.random() * finalCharSet.length)];
+      }
+      return password;
+    } else {
+      return '#ERR';
+    }
+  })();
+
+  return generateNewPassword;
 };
