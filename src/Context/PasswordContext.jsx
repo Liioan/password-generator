@@ -41,13 +41,7 @@ export function PasswordProvider({ children }) {
   };
 
   const generatePassword = () => {
-    const result = useGenerator(
-      state.lenght,
-      state.uppercase,
-      state.lowercase,
-      state.numbers,
-      state.symbols
-    );
+    const result = useGenerator(state);
 
     if (result !== '#ERR') {
       dispatch({ type: 'CHANGE_PASSWORD', payload: result });

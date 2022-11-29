@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 
-export const useGenerator = (
+export const useGenerator = ({
   lenght,
   uppercase,
   lowercase,
   numbers,
-  symbols
-) => {
+  symbols,
+}) => {
   //. chars arrays
   const uppercaseChars = (() => {
     const chars = [...Array(26)].map((val, i) => String.fromCharCode(i + 65));
