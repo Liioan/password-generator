@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 import styles from './GenerateButton.module.css';
 
 export default function GenerateButton() {
-  const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
 
   const { generatePassword } = usePassword();
