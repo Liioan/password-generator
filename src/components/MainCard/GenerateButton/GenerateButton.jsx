@@ -21,11 +21,16 @@ export default function GenerateButton() {
   };
 
   useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        setError(false);
-      }, 2500);
+    if (!error) {
+      return;
     }
+    const timeout = setTimeout(() => {
+      setError(false);
+    }, 2500);
+
+    return () => {
+      clearInterval(timeout);
+    };
   }, [error]);
 
   return (

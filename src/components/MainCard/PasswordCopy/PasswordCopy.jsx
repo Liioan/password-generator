@@ -10,10 +10,16 @@ export default function PasswordCopy({}) {
   const { password: generatedPassword } = usePassword();
   const [isCopied, setIsCopied] = useState(false);
   useEffect(() => {
-    if (isCopied === true)
-      setTimeout(() => {
-        setIsCopied(false);
-      }, 2000);
+    if (isCopied === false) {
+      return;
+    }
+    const timeout = setTimeout(() => {
+      setIsCopied(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
   }, [isCopied]);
 
   const handleClick = () => {
